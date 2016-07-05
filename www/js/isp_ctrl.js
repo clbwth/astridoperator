@@ -4,6 +4,6 @@
 angular.module('Astrid_Op')
   .controller('inspectionCtrl', ['$scope', function ($scope, $cordovaSQLite, $ionicPlatform)
   {
-
+    
   }]);
 

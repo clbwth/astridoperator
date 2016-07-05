@@ -5,8 +5,7 @@ angular.module('Astrid_Op')
   .config(function($stateProvider, $urlRouterProvider)
   {
     $urlRouterProvider.otherwise('/');
-    $stateProvider
-      .state('index',{
+    $stateProvider.state('index',{
         url: '/',
         templateUrl: 'views/asst_main.html'
       })
@@ -18,5 +17,9 @@ angular.module('Astrid_Op')
         url: '/asst_edit',
         templateUrl: 'views/asst_edit.html'
       })
+      .state('asst_new',{
+        url: '/asst_new',
+        templateUrl: 'views/asst_new.html'
+  });
   });
 
