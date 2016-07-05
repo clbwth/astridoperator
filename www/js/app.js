@@ -3,7 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+
+var AstridDB = null;
+angular.module('Astrid_Op', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,5 +22,12 @@ angular.module('starter', ['ionic'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-  });
-})
+    /**
+     * Create/Open db
+     */
+    document.addEventListener("deviceready", function () {
+      AstridDB = window.sqlitePlugin.openDatabase({name: 'Astrid.db', location: 'default'});
+      $cordovaSQLite.execute(AstridDB, "CREATE TABLE IF NOT EXISTS table_inspections (id integer primary key, ga_name text, town_of text, assets text, orig_id integer, is_inspected integer, is_uploaded integer)");
+
+    });
+})});
