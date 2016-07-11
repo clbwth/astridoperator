@@ -21,9 +21,13 @@ angular.module('Astrid_Op')
         url: '/asst_new',
         templateUrl: 'views/asst_new.html'
       })
-      .state('asst_list',{
+      .state('asst_list', {
         url: '/asst_list',
         templateUrl: 'views/asst_list.html'
+      })
+      .state('new_game', {
+        url: '/asst_new',
+        templateUrl: 'views/new_game.html'      
   });
   });
 

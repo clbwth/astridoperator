@@ -1,18 +1,22 @@
 <ion-view>
   <div ng-controller="inspectionCtrl">
+    <div class="bar bar-header bar-stable">
+      <h1 class="title">Nuova Area</h1>
+    </div>
+    <br><br>
       <form name="new_Area">
         <div class="list">
 
           <label class="item item-input item-stacked-label">
             <span class="input-label">Nome area</span>
             <input type="text" name="Area"  placeholder="Area" ng-model="area" required>
-            <span style="color : red" ng-show="new_Area.Area.$pristine && new_Area.Area.$invalid">Nome Area richiesto</span>
+            <span style="color : red; font-size: smaller" ng-show="new_Area.Area.$pristine && new_Area.Area.$invalid">Nome Area richiesto</span>
           </label>
 
           <label class="item item-input item-stacked-label">
             <span class="input-label">Comune</span>
             <input type="text" name="Comune"  placeholder="Comune" ng-model="comune" required>
-            <span style="color : red" ng-show="new_Area.Comune.$pristine && new_Area.Comune.$invalid">Comune richiesto</span>
+            <span style="color : red; font-size: smaller" ng-show="new_Area.Comune.$pristine && new_Area.Comune.$invalid">Comune richiesto</span>
           </label>
         </div>
 
@@ -20,9 +24,10 @@
         <button class="button button-block button-stable" ng-show="(new_Area.Comune.$dirty && new_Area.Comune.$valid) && (new_Area.Area.$dirty && new_Area.Area.$valid)"   ng-click="newArea()">
           Salva
         </button>
-        <button id="newGame" class="button button-block button-stable" style="visibility: hidden">
+        <button id="newGame" class="button button-block button-stable" style="visibility: hidden"  ui-sref="new_game">
           Aggiungi gioco
         </button>
       </form>
     </div>
+
 </ion-view>
