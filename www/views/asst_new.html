@@ -1,5 +1,5 @@
 <ion-view>
-  <div ng-controller="inspectionCtrl">
+  <div ng-controller="AreaController">
     <div class="bar bar-header bar-stable">
       <h1 class="title">Nuova Area</h1>
     </div>
@@ -9,7 +9,7 @@
 
           <label class="item item-input item-stacked-label">
             <span class="input-label">Nome area</span>
-            <input type="text" name="Area"  placeholder="Area" ng-model="area" required>
+            <input type="text" name="Area" ng-model="area" placeholder="Area"  required>
             <span style="color : red; font-size: smaller" ng-show="new_Area.Area.$pristine && new_Area.Area.$invalid">Nome Area richiesto</span>
           </label>
 
@@ -24,7 +24,7 @@
         <button class="button button-block button-stable" ng-show="(new_Area.Comune.$dirty && new_Area.Comune.$valid) && (new_Area.Area.$dirty && new_Area.Area.$valid)"   ng-click="newArea()">
           Salva
         </button>
-        <button id="newGame" class="button button-block button-stable" style="visibility: hidden"  ui-sref="new_game">
+        <button id="newGame" class="button button-block button-stable" style="visibility: hidden"  ui-sref="new_game" ng-show="(new_Area.Comune.$dirty && new_Area.Comune.$valid) && (new_Area.Area.$dirty && new_Area.Area.$valid)">
           Aggiungi gioco
         </button>
       </form>

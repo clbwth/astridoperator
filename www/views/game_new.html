@@ -4,6 +4,7 @@
   </div>
   <br><br>
 
+  <div ng-controller="AreaController"></div>
   <form name="new_Game">
     <div class="list">
 
@@ -14,27 +15,26 @@
       </label>
 
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Anno di posa</span>
+        <span class="input-label">Data di posa</span>
         <input type="date" name="Data"  placeholder="Data" ng-model="Data" required>
         <span style="color : red; font-size: smaller" ng-show="new_Game.Data.$pristine && new_Game.Data.$invalid">Data di posa richiest</span>
       </label>
-      <br>
-      <br>
 
       <label class="item item-input item-select">
         <span class="input-label">
            Tipo Pavimentazione
         </span>
+
         <select id="Pavimento">
-          <option>Terra</option>
-          <option>Cemento</option>
-          <option>Torta</option>
+          <option value="0">Seleziona</option>
+          <option value="1">Terra</option>
+          <option value="2">Cemento</option>
+          <option value="3">Torta</option>
         </select>
       </label>
-      <span style="color : red" ng-show="new_Game">Tipo Pavimentazione richiesto</span>
 
-    </div>
-    <button class="button button-block button-stable" ng-show="(new_Game.Gioco.$dirty && new_Game.Gioco.$valid) && (new_Game.Data.$dirty && new_Game.Data.$valid) && (new_Game.Pavimento.$dirty && new_Game.Pavimento.$valid)"   ng-click="dodo()">
+    <button class="button button-block button-stable" ng-show="(new_Game.Gioco.$dirty && new_Game.Gioco.$valid) && (new_Game.Data.$dirty && new_Game.Data.$valid)"   ng-click="push_game()">
       Salva
     </button>
+      </div>
 </ion-view>

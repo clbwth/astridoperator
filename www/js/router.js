@@ -27,7 +27,7 @@ angular.module('Astrid_Op')
       })
       .state('new_game', {
         url: '/asst_new',
-        templateUrl: 'views/new_game.html'      
+        templateUrl: 'views/game_new.html'      
   });
   });
 
