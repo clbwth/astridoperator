@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 
 var AstridDB = null;
-angular.module('Astrid_Op', ['ionic', 'ngCordova'])
+angular.module('Astrid_Op', ['ionic', 'ngCordova', 'ngOnload'])
 
 .run(function($ionicPlatform, $cordovaSQLite) {
   $ionicPlatform.ready(function() {
