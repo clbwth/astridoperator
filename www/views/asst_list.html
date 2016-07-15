@@ -5,13 +5,7 @@
   </div>
 
   <div ng-controller="inspectionCtrl">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div ng-init="showInspections()">
-      <div ng-repeat="area in inspections track by $index">{{area.ga_name}}</div>
-    </div>
+    <button ng-click="logAreas()">Debug</button>
+  </div>
 
-    </div>
 </ion-view>

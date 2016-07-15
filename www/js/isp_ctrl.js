@@ -2,30 +2,46 @@
  * Created by Gabriele on 05/07/2016.
  */
 angular.module('Astrid_Op')
-  .controller('inspectionCtrl', ['$scope', function ($scope, $cordovaSQLite, $ionicPlatform)
+
+.controller('inspectionCtrl', ['$scope', function ($scope, $cordovaSQLite, $ionicPlatform)
+{
+  $scope.db_result    = null;
+  $scope.inspections  = null;
+  $scope.areas        = [];
+
+  /**
+   * Fetches the records from the db
+   * Then stores the records in the $scope.db_result model
+   */
+  $scope.fetchInspections = function ()
   {
-    $scope.db_result = null;
-    $scope.inspections = null;
-
-    $scope.$watch('db_result', function()
-    {
-      //chiamare funzione esterna per assegnare valore db_result a inspections
-      $scope.inspections = $scope.db_result;
-      console.log($scope.inspections);
-      console.log($scope.inspections.item(1).ga_name);
+    var query = "SELECT * FROM table_inspections WHERE is_inspected = ?";
+    document.addEventListener("deviceready", function () {
+      AstridDB.executeSql(query, [0], function (data) {
+        $scope.db_result = data;
+        $scope.logAreas();
+      });
     });
+  };
 
-    $scope.showInspections = function ()
+  //  Init the records
+  $scope.fetchInspections();
+
+  $scope.logAreas = function() {
+    console.log('Starting compose array meth');
+    $scope.composeArray();
+    console.log($scope.areas);
+  };
+
+  //  Compose the array
+  $scope.composeArray = function() {
+    for(var i = 0; i < $scope.db_result.rows.length; i++)
     {
-      console.log('Showinspection running');
-      var query = "SELECT * FROM table_inspections WHERE is_inspected = ?";
-        document.addEventListener("deviceready", function () {
-          AstridDB.executeSql(query, [0], function (data) {
-            $scope.db_result = data.rows;
-            console.log(data.rows.item(1).ga_name);
-            console.log($scope.db_result.item(2).ga_name);
-          });
-        });
-      };
-  }]);
+      $scope.areas[i] = $scope.db_result.rows.item(i);
+    }
+
+    console.log('Ended exec of compose array meth');
+  };
+}]);
+
 
