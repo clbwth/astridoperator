@@ -4,8 +4,26 @@
     <h1 class="title">Lista ispezioni</h1>
   </div>
 
-  <div ng-controller="inspectionCtrl">
-    <button ng-click="logAreas()">Debug</button>
-  </div>
+  <ion-content>
+    <br>
+    <br>
+    <br>
+    <div ng-controller="inspectionCtrl">
+      <div ng-repeat="area in areas">
+        <div class="card">
+          <div class="item item-divider">
+            {{area.id}}. {{area.ga_name}}
+            <button ui-sref="asst_edit({id: '{{area.id}}'})"></button>
+          </div>
+          <div class="item item-divider-android">
+            {{area.town_of}}
+          </div>
+          <div class="item item-divider">
+            {{area.assets}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
 
 </ion-view>

@@ -5,7 +5,8 @@ angular.module('Astrid_Op')
   .config(function($stateProvider, $urlRouterProvider)
   {
     $urlRouterProvider.otherwise('/');
-    $stateProvider.state('index',{
+    $stateProvider
+      .state('index',{
         url: '/',
         templateUrl: 'views/asst_main.html'
       })
@@ -14,8 +15,9 @@ angular.module('Astrid_Op')
         templateUrl: 'views/asst_main.html'
       })
       .state('asst_edit',{
-        url: '/asst_edit',
-        templateUrl: 'views/asst_edit.html'
+        url: '/asst_edit/:id',
+        templateUrl: 'views/asst_edit.html',
+        controller: 'EditAreaController'
       })
       .state('asst_new', {
         url: '/asst_new',
@@ -27,7 +29,7 @@ angular.module('Astrid_Op')
       })
       .state('new_game', {
         url: '/asst_new',
-        templateUrl: 'views/game_new.html'      
+        templateUrl: 'views/game_new.html'
   });
   });
 
